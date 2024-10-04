@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Becarios>
+    <becario>
+        <nombre>Pepe</nombre>
+        <apellido>Mel</apellido>
+        <sexo>H</sexo>
+        <edad>21</edad>
+        <suspensos>21</suspensos>
+        <residencia>No</residencia>
+        <ingresos>200000.0</ingresos>
+    </becario>
+</Becarios>
