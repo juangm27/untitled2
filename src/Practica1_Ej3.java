@@ -43,7 +43,7 @@ class GestionContenido extends DefaultHandler {
         String car = new String(ch, inicio, longitud);
         //quitar saltos de línea
         car = car.replaceAll("[\n]", "");
-        System.out.printf("\t Caracteres: %s %n", car);
+        System.out.printf("\t Contenido: %s %n", car);
     }
 }
 
