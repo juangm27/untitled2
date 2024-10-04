@@ -19,23 +19,24 @@ public class Practica1_Ej1 {
         try(ObjectInputStream ois=new ObjectInputStream(new FileInputStream(fichero))){
             Becario b= (Becario) ois.readObject();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            DOMImplementation implementation = builder.getDOMImplementation();
-            Document document = implementation.createDocument(null, "Becarios", null);
-            Element raiz= document.createElement("becario");
-            document.getDocumentElement().appendChild(raiz);
+            DOMImplementation implementacion = builder.getDOMImplementation();
+            Document documento = implementacion.createDocument(null, "Becarios", null);
+            Element raiz= documento.createElement("becario");
+            documento.getDocumentElement().appendChild(raiz);
 
-            CrearElemento("nombre",b.nombre, raiz, document);
-            CrearElemento("apellido",b.apellido, raiz, document);
-            CrearElemento("sexo",b.sexo, raiz, document);
-            CrearElemento("edad", String.valueOf(b.edad), raiz, document);
-            CrearElemento("suspensos", String.valueOf(b.edad), raiz, document);
-            CrearElemento("residencia",b.residencia, raiz, document);
-            CrearElemento("ingresos", String.valueOf(b.ingresosAnuales), raiz, document);
-            Source source = new DOMSource(document);
-            Result result = new StreamResult(new java.io.File("Becarios.xml"));
-            Transformer transformer = TransformerFactory.newInstance().newTransformer();
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.transform(source, result);
+            CrearElemento("nombre",b.nombre, raiz, documento);
+            CrearElemento("apellido",b.apellido, raiz, documento);
+            CrearElemento("sexo",b.sexo, raiz, documento);
+            CrearElemento("edad", String.valueOf(b.edad), raiz, documento);
+            CrearElemento("suspensos", String.valueOf(b.edad), raiz, documento);
+            CrearElemento("residencia",b.residencia, raiz, documento);
+            CrearElemento("ingresos", String.valueOf(b.ingresosAnuales), raiz, documento);
+
+            Source s = new DOMSource(documento);
+            Result r = new StreamResult(new java.io.File("Becarios.xml"));
+            Transformer t = TransformerFactory.newInstance().newTransformer();
+            t.setOutputProperty(OutputKeys.INDENT, "yes");
+            t.transform(s, r);
         } catch (IOException | ParserConfigurationException | ClassNotFoundException | TransformerException e) {
             throw new RuntimeException(e);
         }
