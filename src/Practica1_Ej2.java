@@ -7,7 +7,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 
-public class Practica1Ej2 {
+public class Practica1_Ej2 {
     public static void main(String[] args) {
         DocumentBuilderFactory factory =
                 DocumentBuilderFactory.newInstance();
